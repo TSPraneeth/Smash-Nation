@@ -1,0 +1,326 @@
+*,html
+{
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+
+}
+main, header, section, aside, footer {
+    margin: 0;
+
+}
+
+header
+{
+    padding: 2% 4%;
+}
+
+footer
+{
+    padding: 20px;
+}
+
+.content
+{
+    padding: 55px;
+}
+
+
+main {
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: 40% 1fr 0.2fr;
+    grid-template-areas: 
+        "hero"
+        "wrapper"
+        "footer";
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: transparent;
+}
+
+.footer
+{
+    background-color: #112b3c;
+}
+
+header > *, footer > *
+{
+    align-self: center;
+    color: white;
+}
+
+.logo
+{
+    letter-spacing: 5px;
+    color: #00ef80;
+}
+
+nav a
+{
+    text-decoration: none;
+}
+
+.hero {
+    grid-area: hero;
+    background-image: url('hero.jpg');
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("imgs/hero.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  
+  .hero-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+  }
+
+  .hero-text h1
+  {
+    font-size: 40px;
+    text-transform: uppercase;
+  }
+
+.flex-container
+{
+    display: grid;
+    grid-area: wrapper;
+}
+
+
+.content {
+    background: #ced8e2;
+    grid-area: contentt;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.content > *
+{   
+    align-self: center;
+}
+
+#how
+{
+    /* font-size: 4rem; */
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.how_it_works
+{
+    display: grid;
+    grid-gap: 80px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.how_it_works > *
+{
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0px 0px 25px -10px;
+}
+
+.register, .compete, .champion
+{
+    display: flex;
+    background-color: #112b3c;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-direction: column;
+}
+
+.register:hover, .compete:hover, .champion:hover
+{
+    transform: translateY(-10px);
+    transition: 350ms ease-in;
+}
+
+.title
+{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* .title, .description
+{
+    font-size: 2.7rem;   
+} */
+
+.sidebar {
+    background-color: #112b3c;
+    grid-area: sidebar;
+}
+
+aside, nav
+{
+    position: relative;
+}
+
+.links
+{
+    color: white;
+}
+
+.links::after
+{
+    transform: scaleX(0);
+    transition: transform 250ms ease-in;
+    transform-origin: right;
+    content: '';
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: -5px;
+    position: absolute;
+}
+
+.links:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.links::after {
+    border-bottom: 2px solid #00ef80;
+}
+
+.sidebar_links
+{
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    padding: 15px;
+    color: white;
+}
+
+.sidebar_links:hover
+{
+    background-color: #00ef80;
+    color: black;
+    transition: 450ms ease-in;
+    font-weight: bolder;
+}
+
+.footer {
+    grid-area: footer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-direction: column;
+}
+
+.fa {
+    padding: 15px;
+    font-size: 30px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+  }
+  
+  .fa:hover {
+      opacity: 0.7;
+      cursor: pointer;
+  }
+  
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+@media screen and (max-width:425px) {
+    .register, .compete, .champion
+{
+    padding: 50px 20px;
+}
+
+.content
+{
+    padding: 55px 15px;
+}
+}
+
+@media screen and (min-width:426px) {
+    .register, .compete, .champion
+{
+    padding: 50px;
+}
+}
+
+@media (max-width:767px)
+{
+    .flex-container
+    {
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.9fr 0.1fr;
+        grid-template-areas: 
+            "contentt"
+            "sidebar";
+    }
+}
+
+@media screen and (min-width:768px)
+{
+    .flex-container
+{
+    grid-template-columns: 0.7fr 0.3fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+            "contentt sidebar";
+}
+
+    .title, .description, #how
+    {
+        font-size: unset;
+    }
+
+    .sidebar
+    {
+        padding-top: 55px;
+    }
+
+    #how
+    {
+        /* font-size: 1.5em; */
+    }
+}
+
+@media screen and (min-width:998px)
+{
+    .flex-container
+    {
+        max-width: 1400px;
+        margin: 0 auto;
+    }    
+}
